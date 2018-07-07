@@ -21,6 +21,9 @@
 						<div class="main">
 							<form method="post" action="post/signup">
 								<input type="hidden" name="action" value="register">
+								<input type="hidden" name="rtn" value="register">
+								
+								
 								<label><i class="required-caption">Login:</i><input class="text-box inHelp" type="text" name="reg_login" placeholder="Account login" title="Login length from 4 to 10 letters. Only latin letters and numbers. Used for log-in for website and game." value=""></label>
 								<label><i class="required-caption">Nickname:</i><input class="text-box inHelp" type="text" name="reg_nick" placeholder="Account display name" title="Nickname length from 4 to 10 letters. Only latin letters and numbers. Used for log-in for forums." value=""></label>
 								<label><i class="required-caption">Password:</i><input class="text-box inHelp" type="password" name="reg_password" placeholder="Account password" title="Password length from 6 to 10 letters."></label>
@@ -32,6 +35,7 @@
 
 								<div class="spacer2"></div>
 								<!--- Google Captcha --->
+								<span id="register"></span>
 				<div class="g-recaptcha" data-sitekey="6Lfs0WIUAAAAAK_C3efwpOS1nKQbIdWIUFj9Q7gh"></div>
 
 						<div class="spacer2"></div>

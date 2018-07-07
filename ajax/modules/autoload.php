@@ -11,15 +11,10 @@ function __autoload($class_name)
 	switch($class_name)
 	{
 		//
+		case "Language":
 		case "Item":
-		require_once("../modules/classes/". strtolower($class_name) .".class.php");
-		break;
 		case "Security":
-		require_once("../modules/classes/". strtolower($class_name) .".class.php");
-		break;
 		case "DataBase":
-		require_once("../modules/classes/". strtolower($class_name) .".class.php");
-		break;		
 		case "MySql":
 		require_once("../modules/classes/". strtolower($class_name) .".class.php");
 		break;

@@ -1,6 +1,6 @@
 <?php	ob_start();
 	 	session_start();
-		error_reporting(0);//E_ALL | E_STRICT
+		error_reporting(E_ALL | E_STRICT);//E_ALL | E_STRICT
 		date_default_timezone_set ('America/Sao_Paulo');
 		header('Content-type: application/json');
 		include('modules/autoload.php');
@@ -8,7 +8,7 @@
 		$Security = new Security();
 		if(@$_GET['page'] == "captcha"){$Captcha = new Captcha();}
 		if(@$_GET['page'] == "logoGuildDecode"){$Gmark = new Gmark($_GET['decode'], 130);}
-		
+		/*
 		$Bloc = new Bloc();
 		if($Bloc->get_connect_stat() > 0){
 		foreach ($_POST as $key => $value){$$key = $value;} 
@@ -20,6 +20,8 @@
 		echo json_encode($arr);	
 		exit;
 		}
+
+*/
 		switch(@$_POST['action'])
 		{
 		case "login":

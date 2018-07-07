@@ -4,145 +4,84 @@ $PageName = strtolower(basename( __FILE__ ));
 if($PageRequest == $PageName) exit("<strong> Erro: N&atilde;o &eacute; permitido acessar o arquivo diretamente. </strong>");
 
 if ( class_exists( "Register" ) == false ) {
-	//new Language( str_replace(".class.", ".lang.", basename(__FILE__)), false );
+	new Language( str_replace(".class.", ".lang.", basename(__FILE__)), false );
     class Register extends DataBase {
 		private $tpmResult = NULL;
 		public function __construct()
 		{
-			//$this->returnMsg();
-			$this->registerNow();
+				$this->main();
+
 		}
 		
-        private function registerNow()
-        {
+		// funcção principal por onde deve iniciar o registro
+		public function main()
+		{
 		foreach ($_POST as $key => $value){$$key = $value;} 
-		$return ="";
-		$AccRegister01 = "Você deixou campos obrigatórios em branco. Por favor, confira.";
-		
-		$AccRegister02 = "As senhas que você usou são diferentes! Por favor digite as duas senhas IGUAIS!";
-		
-		$AccRegister03 = "Código digitado incorretamente!";
-		
-		$AccRegister04 = "Não use caracteres especiais em seu nome de usuário. Apenas letras (A-Z , a-z) e/ou números são permitidos.";
-		
-		$AccRegister05 = "São necessários 7 NÚMEROS para a <strong>chave de segurança</strong>";
-		
-		$AccRegister06 = "O e-mail ([mail_addr]) já foi usado em nosso banco de dados. Por favor use outro endereço de e-mail!";
-		
-		$AccRegister07 = "O nome de usuário (".$memb___id.") já está sendo usado! Por favor, escolha outro nome de usuário.";
-		
-		$AccRegister08 = "Não foi possível criar seu cadastro neste momento. Por favor tente mais tarde ou informe o suporte.";
-		
-		$AccRegister09 = "Olá, [memb_name]!<br />Sua conta foi criada com sucesso!<br />Obrigado por se juntar a nós!<br />Esperamos que você tenha momentos felizes e descontraídos jogando em nossos servidores.<br />Estamos enviando um e-mail neste exato momento explicando como validar seu endereço e-mail.<br />Quaisquer dúvidas poderão ser tiradas em nosso sistema de suporte no próprio site.<br /><br />Divirta-se!<br /><br /><br />";
-		
-		$AccRegister10 = "Os e-mails digitados não conferem! Por favor digite os dois e-mails IGUAIS!";
-		
-		$AccRegister11 = "O e-mail digitado parece inválido. Verifique se digitou corretamente.";
-		
-		$AccRegister12 = "O nome de usuário deve ter entre 4 e 10 letras e/ou números.";
-		
-		$AccRegister13 = "A senha deve ter entre 4 e 10 letras e/ou números.";
-		
-		$AccRegister14 = "Não use caracteres especiais em sua senha. Apenas letras (A-Z , a-z) e/ou números são permitidos.";
-		
-		
-		$AccRegister15 = "Cadastro no MuRuby"; //Mail Confirmation Subject
-		
-		//Mail Confirmation Content (html enabled)
-		$AccRegister16 = "<p>Ol&aacute;, [memb_name]!</p><p>Você registrou-se recentemente no MuRuby.</p><p>Para ativar sua conta, é necessário que você abra o link abaixo em seu navegador:<br />http://www.muruby.net/?c=MailActivate/[verify_hash]/[memb___id]<br /><a href='http://www.muruby.net/?c=MailActivate/[verify_hash]/[memb___id]'>ATIVAR CONTA</a></p><p>Lembrando seus dados:<br />Nome de Usuário: [memb___id]<br />Senha: (oculta) <br />E-mail: [mail_addr] <br />Pergunta Secreta: [fpas_ques] <br />Resposta Secreta: [fpas_answ] <br /><b>NÃO ESQUEÇA SEUS DADOS, PRINCIPALMENTE SUA SENHA!<br />É A ÚNICA FORMA DE MANTER SUA CONTA SEMPRE ATIVA E SEGURA!</b><br /><br />
-		<p>Agradecemos a preferência,</p><p>Equipe MuRuby</p><p>* Esta mensagem foi gerada automaticamente em nossos servidores, por favor não responda.</p>";
-
+		$type = 0;
+		switch($this->validateInf())
+		{
+			default:
+				$msg = "CONTA CRIADA COM SUCESSO!!!";
+				break;
+				
+		}
 			
+		//retorna a mensagem
+		$this->returnMsg($type,$rtn,$msg);
+		}
+		
+		
+		private function validateInf(){
+		foreach ($_POST as $key => $value){$$key = $value;} 
+		$recaptcha = $_POST['g-recaptcha-response'];
+		if(!$this->reCAPTCHA($recaptcha)) {return 1;} // não validou o captcha
+		//usuario, email ou senha em branco
+		if(empty($reg_login) || empty($memb__pwd) || empty($mail_addr)){return 2;}
+		// as senhas não confere
+		if ($memb__pwd != $memb__pwd2){return 3;}
+		//Tamanho da senha e diferente do permitido
+		if(strlen($memb__pwd) < 4 || strlen($memb__pwd) > 10){ return 4;}
+		// senha so pode conter letras e numeros
+		if(!ctype_alnum($memb__pwd)){ return 5;}
+		//verifica se o email informado e o re email conferem 
+		if ($mail_addr != $mail_addr2){ return 6;}
+		// verifica se foi digitado um email valido 
+		if(!preg_match("/^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/i", $mail_addr)){ return 7;}
+		//Login pode conter somente letras e numeros
+		if(!ctype_alnum($reg_login)){return 8;}
+		// verifica o tamanho do login
+		if(strlen($reg_login) < 4 || strlen($reg_login) > 10){ return 9;}
+			
+		}
+		
+		
+		
+		// verifica se o captcha foi verificado
+		private function  reCAPTCHA($recaptcha) {
 		//reCAPTCHA	
 		$ip = $_SERVER['REMOTE_ADDR'];
-		$var = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.CAPTCHASECRETKEY.'&response='.g-recaptcha-response.'&remoteip=$ip');
+		$var = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.CAPTCHASECRETKEY.'&response='.$recaptcha.'&remoteip=$ip');
 		$response = json_decode($var, true);
-		if(!$response[success]){
-						$return .= "Voce nao marcou o capcha<br />";
-			$error = true;
-		}
-			
-		if(empty($memb___id) || empty($memb__pwd) || empty($mail_addr))
-		{
-			$return .= $AccRegister01."<br />";
-			$error = true;
+
+		return $response['success'];
+
 		}
 		
-		if ($memb__pwd != $memb__pwd2)
-		{
-			$return .= $AccRegister02."<br />";
-			$error = true;
-		}
-		
-		if(strlen($memb__pwd) < 4 || strlen($memb__pwd) > 10)
-		{
-			$return .= $AccRegister13."<br />";
-			$error = true;
-		}
-		
-		if(!ctype_alnum($memb__pwd))
-		{
-			$return .= $AccRegister14."<br />";
-			$error = true;
-		}
-		
-		if ($mail_addr != $mail_addr2)
-		{
-			$return .= $AccRegister10."<br />";
-			$error = true;
-		}
-		
-		if(!preg_match("/^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/i", $mail_addr))
-		{
-			$return .= $AccRegister11 . "<br />";
-			$error = true;
-		}
-		/*
-		if ($_SESSION["SecurityCode"] != $code2)
-		{
-			$return .= $AccRegister03."<br />";
-			$error = true;
-		}
-		*/
-		if(!ctype_alnum($memb___id))
-		{
-			$return .= $AccRegister04."<br />";
-			$error = true;
-		}
-		
-		if(strlen($memb___id) < 4 || strlen($memb___id) > 10)
-		{
-			$return .= $AccRegister12."<br />";
-			$error = true;
-		}
-		
-		if(!is_numeric($sno__numb) || strlen($sno__numb) != 7)
-		{
-			$return .= $AccRegister05."<br />";
-			$error = true;
-		}
-		
-		if(isset($AccRegisterOneEmail) && $AccRegisterOneEmail)
-		{
-			$result = $this->selectDB("SELECT memb_guid FROM MEMB_INFO WHERE mail_addr = '$mail_addr'");
-			if(count($result) > 0)
-			{
-				$return .= $AccRegister06."<br />";
-				$error = true;
-			} 
-		}
-		
-		$sql = "SELECT memb___id FROM MEMB_INFO WHERE memb___id = '$memb___id'";
+		// verifica se o email ja não esta registrado no banco de dados
+        private function checkemail(){
+		$sql = "SELECT memb___id FROM MEMB_INFO WHERE memb___id = '$reg_login'";
 		$result = $this->selectDB($sql);
-		if(count($result) > 0)
-		{
-			$return .= $AccRegister07."<br />";
-			$error = true;
+		return count($result);
 		}
-		if(@$error == false){
+
+		
+		//Cria a noca conta
+		private function registerAccount()
+		{
+			
 			$sql ="INSERT INTO ". DATABASE .".dbo.MEMB_INFO (memb___id,memb__pwd,memb_name,sno__numb,post_code,addr_info,addr_deta,tel__numb,mail_addr,phon_numb,fpas_ques,fpas_answ,job__code, appl_days,modi_days,out__days,true_days,mail_chek,bloc_code,ctl1_code)
 			VALUES 
-('$memb___id','$memb__pwd','$memb_name','$sno__numb','s-n','11111','','0','$mail_addr','','$fpas_ques','$fpas_answ','1','2003-11-23','2003-11-23','2003-11-23','2003-11-23','1','0','1')";
+('$reg_login','$memb__pwd','$memb_name','$sno__numb','s-n','11111','','0','$mail_addr','','$fpas_ques','$fpas_answ','1','2003-11-23','2003-11-23','2003-11-23','2003-11-23','1','0','1')";
 
 			$result = $this->insertDB($sql);
 
@@ -150,7 +89,7 @@ if ( class_exists( "Register" ) == false ) {
 			$date = date('M d Y h:i');
 			$date = date('M d Y h:i', strtotime("+7 days",strtotime($date)));			
 $sql ='UPDATE '. DATABASE .'.[dbo].[MEMB_INFO] SET [AccountLevel] = \'1\',[AccountExpireDate] = \''.$date.'\'
- WHERE [memb___id] = \''.$memb___id.'\'';
+ WHERE [memb___id] = \''.$reg_login.'\'';
 			$result = $this->updateDB($sql);	
 				
 			$type = 0;
@@ -159,27 +98,17 @@ $sql ='UPDATE '. DATABASE .'.[dbo].[MEMB_INFO] SET [AccountLevel] = \'1\',[Accou
 			$return .="Desculpe nao foi possivel efetuar o cadastro no momento.";
 			}
 			
-		}else{
-			$type = 1;
-			$return .='Desculpe não foi possivel efetuar o seu cadastro<br>';
-		}
-		
-				$this->returnMsg($type,$rtn,$return);
-		}
-        private function resendActivateEmail()
-        {
 		
 		}
-		private function activeAccount()
-		{
-			
-		}
+		
+		
+
 		
 		private function returnMsg($type,$rtn,$msg)
 		{
 		$arr = Array(
 		 'type' =>		$type,
-		 'rtn' =>	$rtn,
+		 'rtn' =>		$rtn,
 		 'msg' =>		$msg
 		);
 		

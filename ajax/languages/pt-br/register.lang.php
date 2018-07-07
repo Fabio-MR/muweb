@@ -1,5 +1,5 @@
 <?php
-	  	$AccRegister01 = "Você deixou campos obrigatórios em branco. Por favor, confira.";
+	 /* 	$AccRegister01 = "Você deixou campos obrigatórios em branco. Por favor, confira.";
 		
 		$AccRegister02 = "As senhas que você usou são diferentes! Por favor digite as duas senhas IGUAIS!";
 		
@@ -33,3 +33,4 @@
 		//Mail Confirmation Content (html enabled)
 		$AccRegister16 = "<p>Ol&aacute;, [memb_name]!</p><p>Você registrou-se recentemente no MuRuby.</p><p>Para ativar sua conta, é necessário que você abra o link abaixo em seu navegador:<br />http://www.muruby.net/?c=MailActivate/[verify_hash]/[memb___id]<br /><a href='http://www.muruby.net/?c=MailActivate/[verify_hash]/[memb___id]'>ATIVAR CONTA</a></p><p>Lembrando seus dados:<br />Nome de Usuário: [memb___id]<br />Senha: (oculta) <br />E-mail: [mail_addr] <br />Pergunta Secreta: [fpas_ques] <br />Resposta Secreta: [fpas_answ] <br /><b>NÃO ESQUEÇA SEUS DADOS, PRINCIPALMENTE SUA SENHA!<br />É A ÚNICA FORMA DE MANTER SUA CONTA SEMPRE ATIVA E SEGURA!</b><br /><br />
 		<p>Agradecemos a preferência,</p><p>Equipe MuRuby</p><p>* Esta mensagem foi gerada automaticamente em nossos servidores, por favor não responda.</p>";
+*/
