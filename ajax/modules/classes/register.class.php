@@ -74,7 +74,7 @@ if ( class_exists( "Register" ) == false ) {
 		private function validateInf(){
 		foreach ($_POST as $key => $value){$$key = $value;} 
 		$recaptcha = $_POST['g-recaptcha-response'];
-	//	if(!$this->reCAPTCHA($recaptcha)) {return 1;} // não validou o captcha
+		if($this->reCAPTCHA($recaptcha)) {return 1;} // não validou o captcha
 		//usuario, email ou senha em branco
 		if(empty($reg_login) || empty($reg_password) || empty($reg_email)){return 2;}
 		// as senhas não confere
@@ -139,13 +139,6 @@ if ( class_exists( "Register" ) == false ) {
 		//Cria a noca conta
 		private function registerAccount($reg_login,$reg_password,$memb_name,$sno__numb,$reg_email,$fpas_ques,$fpas_answ)
 		{
-			/*           ,[bloc_code]
-           ,[ctl1_code]
-           ,[Coin1]
-           ,[Coin2]
-           ,[Coin3]
-           ,[AccountLevel]
-           ,[AccountDays]*/
 			$sql ="INSERT INTO ". DATABASE .".dbo.MEMB_INFO (memb___id,memb__pwd,memb_name,sno__numb,post_code,addr_info,addr_deta,tel__numb,mail_addr,phon_numb,
 			fpas_ques,fpas_answ,job__code, appl_days,modi_days,out__days,true_days,mail_chek,bloc_code,ctl1_code)
 			VALUES 
