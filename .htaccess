@@ -1,0 +1,51 @@
+<FilesMatch "\.(txt)$">
+  Order Deny,Allow
+  Deny from all
+</FilesMatch>
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{REQUEST_URI} !/
+	RewriteRule (.*) /$1 [L]
+	
+	ErrorDocument 400 /index.php?erro=400
+	ErrorDocument 401 /index.php?erro=401
+	ErrorDocument 403 /index.php?erro=403
+	ErrorDocument 404 /index.php?erro=404
+	ErrorDocument 500 /index.php?erro=500
+	
+
+	RewriteRule ^ajax.php?$  /ajax/index.php?&$1 [QSA,L]
+
+	
+	#Rankings
+	RewriteRule ^rankings/([a-z0-9-]+)/?$ /?page=rankings&type=$1 [NC,L]
+	RewriteRule ^rankings/characters/class/([a-z0-9-]+)/?$ /?page=rankings&type=characters&class=$1 [NC,L]
+
+	#donation 
+	RewriteRule ^donation/pagseguro/?$ /?page=pagseguro [NC,L]
+	RewriteRule ^donation/paypal/?$ /?page=paypal [NC,L]
+	RewriteRule ^donation/([a-z0-9-]+)/?$ /?page=donation&type=$1 [NC,L]
+	
+	#usercp
+	RewriteRule ^usercp/([a-z0-9-]+)/?$ /?page=usercp[$1] [NC,L]
+	
+	#ticket
+	RewriteRule ^ticket/([a-z0-9-]+)/?$ /?page=ticket&type=$1 [NC,L]
+	RewriteRule ^ticket/([a-z0-9-]+)/([a-z0-9-]+)/?$ /?page=ticket&type=$1&id=$2 [NC,L]
+
+	RewriteRule ^notice/([a-z0-9-]+)/?$ /?page=notice&notice=$1 [NC,L]
+
+	RewriteRule ^shopping/([a-z0-9-]+)/?$ /?page=shopping&category=$1 [NC,L]
+	RewriteRule ^shopping/details/([a-z0-9-]+)/?$ /?page=shopping-details&item=$1 [NC,L]
+	
+	RewriteRule ^drop/(.*)/?$ /?page=drop&item=$1 [NC,L]
+
+	RewriteRule ^dv.([a-z0-9-]+)/?$ /?invited=$1 [NC,L]
+	
+	RewriteRule ^([a-z0-9-]+)/([a-z0-9-]+)/?$ /?page=$1 [NC,L]
+
+	
+	RewriteRule ^profile/player/([a-z0-9-]+)/([a-z0-9-]+)/?$ /?page=profile&type=player&req=$2 [NC,L]
+	RewriteRule ^([a-z0-9-]+)/?$ /?page=$1 [NC,L]
+</IfModule>
+
