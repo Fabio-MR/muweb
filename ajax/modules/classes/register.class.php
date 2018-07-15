@@ -74,7 +74,7 @@ if ( class_exists( "Register" ) == false ) {
 		private function validateInf(){
 		foreach ($_POST as $key => $value){$$key = $value;} 
 		$recaptcha = $_POST['g-recaptcha-response'];
-		if($this->reCAPTCHA($recaptcha)) {return 1;} // não validou o captcha
+		//if($this->reCAPTCHA($recaptcha)) {return 1;} // não validou o captcha
 		//usuario, email ou senha em branco
 		if(empty($reg_login) || empty($reg_password) || empty($reg_email)){return 2;}
 		// as senhas não confere

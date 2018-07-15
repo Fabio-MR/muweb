@@ -42,6 +42,7 @@
 
 	RewriteRule ^dv.([a-z0-9-]+)/?$ /?invited=$1 [NC,L]
 	
+	RewriteRule ^en/([a-z0-9-]+)/?$ /?page=$1 [NC,L]
 	RewriteRule ^([a-z0-9-]+)/([a-z0-9-]+)/?$ /?page=$1 [NC,L]
 
 	

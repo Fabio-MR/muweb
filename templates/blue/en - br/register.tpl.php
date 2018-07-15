@@ -1,6 +1,6 @@
 {#INCLUDE:header}
 	<body>
-		{#INCLUDE:header[LOGOUT]}
+		{#DIV[LOGIN_LOGOUT]}
 		<div id="container">
 
 			<div class="wrapper">

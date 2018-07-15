@@ -34,47 +34,47 @@
 		
 		case "lottery":
  		 
-       $Tpl->open("templates/".TEMPLATE_DIR."/lottery.tpl.php");	
+       $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/lottery.tpl.php");	
 		break;
 		case "onlines":
 		$Onlines = new Onlines();
 		 
-        $Tpl->open("templates/".TEMPLATE_DIR."/onlines.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/onlines.tpl.php");	
 		break;
 		case "profile":
 		 
-        $Tpl->open("templates/".TEMPLATE_DIR."/player.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/player.tpl.php");	
 		break;
 		case "contact":
 		 
-        $Tpl->open("templates/".TEMPLATE_DIR."/contact.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/contact.tpl.php");	
 		break;
 		case "downloads":
 		case "files":
  		 
 		$Downloads = new Downloads();
-        $Tpl->open("templates/".TEMPLATE_DIR."/downloads.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/downloads.tpl.php");	
 		break;		
 		case "shopping":
 		 
 		$Shopping = new Shopping();
-        $Tpl->open("templates/".TEMPLATE_DIR."/shopping.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/shopping.tpl.php");	
 		break;	
 		case "shopping-details":
 		 
 		$Shopping = new Shopping();
-        $Tpl->open("templates/".TEMPLATE_DIR."/shopping-details.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/shopping-details.tpl.php");	
 		break;	
 		
 		/* Painel de controle */
 		case "usercp":
 		$Usercp = new Usercp();
 		 
-        $Tpl->open("templates/".TEMPLATE_DIR."/usercp.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/usercp.tpl.php");	
 		break;
 		case "usercp[menu]":
 		if(!empty($_SESSION[SESSION_NAME])){
-        	$Tpl->open("templates/".TEMPLATE_DIR."/menu-usercp.tpl.php");}else{
+        	$Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/menu-usercp.tpl.php");}else{
 				echo'';
 				exit;
 			}
@@ -82,7 +82,7 @@
 		case "usercp[reset]":
 		$Usercp = new Usercp('Reset');
 		 
-        $Tpl->open("templates/".TEMPLATE_DIR."/usercp-reset.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/usercp-reset.tpl.php");	
 		break;
 		case "usercp[greset]":
 		$Usercp = new Usercp('Master Reset');
@@ -172,56 +172,56 @@
 		case "ticket":
 		$Ticket = new Ticket();
 		 
-	    $Tpl->open("templates/".TEMPLATE_DIR."/ticket.tpl.php");	
+	    $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/ticket.tpl.php");	
 		break;			
 		
 		case "rankings":
 			case "ratings":
 		 
 		$Rankings = new Rankings();
-        $Tpl->open("templates/".TEMPLATE_DIR."/rankings.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/rankings.tpl.php");	
 		break;			
 		case "notice":
 		$Notice = new Notice();
 		$Notice->ListNotice('100');
 		$Notice->ReadNotice(@$_GET['notice']);
-        $Tpl->open("templates/".TEMPLATE_DIR."/home.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/home.tpl.php");	
 		break;			
 		case "changelogs":
 		 
-        $Tpl->open("templates/".TEMPLATE_DIR."/changelogs.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/changelogs.tpl.php");	
 		break;			
 		case "about":
 		case "server":
  		 
-       $Tpl->open("templates/".TEMPLATE_DIR."/about.tpl.php");	
+       $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/about.tpl.php");	
 		break;			
 		case "drop":
 		 
 		$Drop = new Drop();
-        $Tpl->open("templates/".TEMPLATE_DIR."/drop.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/drop.tpl.php");	
 		break;			
 		 
 		case "tos":
-        $Tpl->open("templates/".TEMPLATE_DIR."/tos.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/tos.tpl.php");	
 		break;			
 		case "rules":
   		 
-      $Tpl->open("templates/".TEMPLATE_DIR."/rules.tpl.php");	
+      $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/rules.tpl.php");	
 		break;			
 		//Donation
 		case "donation":
  		 
-       $Tpl->open("templates/".TEMPLATE_DIR."/donation.tpl.php");	
+       $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/donation.tpl.php");	
 		break;	
 		case "pagseguro":
 		 
 		if(isset($_SESSION[SESSION_NAME]) == true)
 		{
   		$PagSeguro = new PagSeguro();
-		$Tpl->open("templates/".TEMPLATE_DIR."/pagseguro.tpl.php");	
+		$Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/pagseguro.tpl.php");	
 		}else{
-        $Tpl->open("templates/".TEMPLATE_DIR."/login.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/login.tpl.php");	
 			}
 		break;	
 		case "paypal":
@@ -229,9 +229,9 @@
 		if(isset($_SESSION[SESSION_NAME]) == true)
 		{
  		$PagSeguro = new PagSeguro();
-		$Tpl->open("templates/".TEMPLATE_DIR."/paypal.tpl.php");	
+		$Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/paypal.tpl.php");	
 		}else{
-        $Tpl->open("templates/".TEMPLATE_DIR."/login.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/login.tpl.php");	
 			}
 		break;	
 		
@@ -239,46 +239,46 @@
 		case "register":
 			case "signup":		
     		 
-    $Tpl->open("templates/".TEMPLATE_DIR."/register.tpl.php");	
+    $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/register.tpl.php");	
 		break;		
 		case "login":
 		case "signin":
  		 
-       $Tpl->open("templates/".TEMPLATE_DIR."/login.tpl.php");	
+       $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/login.tpl.php");	
 		break;	
 		case "info":
   		 
-      $Tpl->open("templates/".TEMPLATE_DIR."/info.tpl.php");	
+      $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/info.tpl.php");	
 		break;	
 		case "ts3":
    		 
-     $Tpl->open("templates/".TEMPLATE_DIR."/ts3.tpl.php");	
+     $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/ts3.tpl.php");	
 		break;
 		
 		case "castlesieg":
    		 
 		$CastleSieg = new CastleSieg(); 
-     	$Tpl->open("templates/".TEMPLATE_DIR."/castlesieg.tpl.php");	
+     	$Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/castlesieg.tpl.php");	
 		break;
 		case "modelo":
    		 
-     	$Tpl->open("templates/".TEMPLATE_DIR."/modelo.tpl.php");	
+     	$Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/modelo.tpl.php");	
 		break;	
 		break;
 		case "statistic":
    		 
-     	$Tpl->open("templates/".TEMPLATE_DIR."/statistic.tpl.php");	
+     	$Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/statistic.tpl.php");	
 		break;	
 		case "classes":
    		 
-     	$Tpl->open("templates/".TEMPLATE_DIR."/classes.tpl.php");	
+     	$Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/classes.tpl.php");	
 		break;	
 		default:
 		 
 		$Notice = new Notice();
 		$Notice->ListNotice();
 		$Home = new Home();
-        $Tpl->open("templates/".TEMPLATE_DIR."/home.tpl.php");	
+        $Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/home.tpl.php");	
 		break;	
 		}
 		// EXIBE O SITE

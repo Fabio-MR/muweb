@@ -3,17 +3,17 @@
 	<div class="wrapper">
 		<ul id="navigation">
 			<div class="spacer4"></div>
-			<li><a href="news" id="nav-active"><i class="top-icons-news"></i>Home</a>
+			<li><a href="en/news" id="nav-active"><i class="top-icons-news"></i>Home</a>
 			</li>
-			<li><a href="server"><i class="top-icons-server"></i>About</a>
+			<li><a href="en/server"><i class="top-icons-server"></i>About</a>
 			</li>
-			<li><a href="files"><i class="top-icons-files"></i>Files</a>
+			<li><a href="en/files"><i class="top-icons-files"></i>Files</a>
 			</li>
-			<li><a href="rules"><i class="top-icons-rules"></i>Rules</a>
+			<li><a href="en/rules"><i class="top-icons-rules"></i>Rules</a>
 			</li>
-			<li><a href="ratings"><i class="top-icons-ratings"></i>Rankings</a>
+			<li><a href="en/ratings"><i class="top-icons-ratings"></i>Rankings</a>
 			</li>
-			<li><a href="statistic"><i class="top-icons-statistic"></i>Statistics</a>
+			<li><a href="en/statistic"><i class="top-icons-statistic"></i>Statistics</a>
 			</li>
 		</ul>
 
@@ -29,7 +29,7 @@
 			} );
 		</script>
 		<div class="lk1">
-			<a class="card-login show-popup" id="signin" href="signin">
+			<a class="card-login show-popup" id="signin" href="en/signin">
   	<i class="icons icon-lock"></i>
     <h2>Sign in</h2>
     <span>Log in to your account panel</span>
@@ -40,14 +40,14 @@
 		<div class="lk2">
 			<div class="right-box mTop">
 
-				<a class="card-register" href="signup">
+				<a class="card-register" href="en/signup">
       <i class="icons icon-key"></i>
      	<h2>Sign up</h2>
      	<span>Create a game and forum account</span>
     </a>
 			
 
-				<a class="card-files" href="files">
+				<a class="card-files" href="en/files">
       <i class="icons icon-cloud"></i>
       <h2>Files</h2>
       <span>Download files to play a game</span>

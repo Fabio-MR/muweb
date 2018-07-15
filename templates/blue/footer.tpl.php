@@ -3,7 +3,7 @@
 		<div class="item-footer">
 			<h2>© 2018 NewAgeZ Design</h2>
 			<p>All other trademarks and copyrights belong to their respective owners.</p>
-			<a class="non teen" target="_blank" href="https://www.esrb.org/ratings/Synopsis.aspx?Certificate=21291&Title=Mu+Online"><img src="templates/{#TEMPLATE}/images/teen.png" alt="" /></a>
+			<a class="non teen" target="_blank" href="https://www.esrb.org/ratings/Synopsis.aspx?Certificate=21291&Title=Mu+Online"><img src="en/templates/{#TEMPLATE}/images/teen.png" alt="" /></a>
 		</div>
 		<div class="item-footer">
 			<h2>About us</h2>
@@ -19,7 +19,7 @@
 		<div class="item-footer">
 			<h2>Donate</h2>
 			<div id="take-list">
-				<a class="non" href="https://www.paymentwall.com/" target="_blank"><img src="templates/{#TEMPLATE}/images/paymentwall_button.png" alt="" /></a>
+				<a class="non" href="https://www.paymentwall.com/" target="_blank"><img src="en/templates/{#TEMPLATE}/images/paymentwall_button.png" alt="" /></a>
 				<p><a href="https://mu.newagez.com/rules?tab=2">Terms</a> and <a href="/rules?tab=3">Privacy</a>
 				</p>
 			</div>

@@ -3,17 +3,17 @@
 		<div class="wrapper">
 			<ul id="navigation">
 				<div class="spacer4"></div>
-				<li><a href="news" id="nav-active"><i class="top-icons-news"></i>Home</a>
+				<li><a href="en/news" id="nav-active"><i class="top-icons-news"></i>Home</a>
 				</li>
-				<li><a href="server"><i class="top-icons-server"></i>About</a>
+				<li><a href="en/server"><i class="top-icons-server"></i>About</a>
 				</li>
-				<li><a href="files"><i class="top-icons-files"></i>Files</a>
+				<li><a href="en/files"><i class="top-icons-files"></i>Files</a>
 				</li>
-				<li><a href="rules"><i class="top-icons-rules"></i>Rules</a>
+				<li><a href="en/rules"><i class="top-icons-rules"></i>Rules</a>
 				</li>
-				<li><a href="ratings"><i class="top-icons-ratings"></i>Rankings</a>
+				<li><a href="en/ratings"><i class="top-icons-ratings"></i>Rankings</a>
 				</li>
-				<li><a href="statistic"><i class="top-icons-statistic"></i>Statistics</a>
+				<li><a href="en/statistic"><i class="top-icons-statistic"></i>Statistics</a>
 				</li>
 				<li><a href="#"><i class="top-icons-forum"></i>Forum</a>
 				</li>
@@ -33,13 +33,13 @@
 			<div class="lk1">
 				<div id="top-info">
 
-					<img src="images/no-avatar.png" alt=""/>
+					<img src="en/images/no-avatar.png" alt=""/>
 
 					<p>You are logged in as: <b>{#USERNAME}</b>
 					</p>
 
-					<a href="usercp/{#USERNAME}" target="_blank">Profile</a>
-					<a href="logout">Exit</a>
+					<a href="en/usercp/{#USERNAME}" target="_blank">Profile</a>
+					<a href="en/logout">Exit</a>
 
 				</div>
 
@@ -49,7 +49,7 @@
 						<h3>Event schedule</h3>
 						<div class="spacer"></div>
 						<ul id="events">
-							<script type="text/javascript" src="templates/{#TEMPLATE}/js/events.js"></script>
+							<script type="text/javascript" src="en/templates/{#TEMPLATE}/js/events.js"></script>
 							<script type="text/javascript">
 								MuEvents.init( '00:39:44' );
 							</script>

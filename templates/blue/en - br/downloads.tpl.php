@@ -1,6 +1,6 @@
 {#INCLUDE:header}
 <body>
-	{#INCLUDE:header[LOGOUT]}
+	{#DIV[LOGIN_LOGOUT]}
 	<div id="container">
 
 		<div class="wrapper">
@@ -32,14 +32,14 @@
 			  <div class="spacer3"></div>
   
 	<div class="main">
-    <h2 class="color1">Client v1.13.00</h2>
+    <h2 class="color1">Client v1.00.00</h2>
     <div class="spacer_2px"></div>
   
     
     <div class="file-info">
       <ul class="roll">
-        <li><span>Date:</span> 04.04.2018</li>
-        <li><span>Size:</span> 902 MB</li>
+        <li><span>Date:</span> 07.09.2018</li>
+        <li><span>Size:</span> 576 MB</li>
       </ul>
     </div>
     
@@ -50,11 +50,13 @@
     <div class="spacer_2px"></div>
 
     <div class="rightfloat">  
-              <a href="#" class="mirror non help_text" title="mega.nz (format of the file .exe)" target="_blank">Link #1</a>
-              <a href="#" class="mirror non help_text" title="nofile.io (format of the file .exe)" target="_blank">Link #2</a>
+              <a href="https://mega.nz/#!4t921AjI!N9dVEoeFZjcvIXlKCQ_0ip0uAVQxOvzSfa31b2bwXtY" class="mirror non help_text" title="mega.nz (format of the file .exe)" target="_blank">Link #1</a>
+              <a href="https://drive.google.com/file/d/1Aft7gCncdkrNPPfxXiaiaKQYJfoinRLy/view" class="mirror non help_text" title="Google Drive (format of the file .exe)" target="_blank">Link #2</a>
           </div>
     <div class="clear"></div>
   </div>
+			  
+			  <!--
 <div class="spacer2"></div>
 <div class="main">
     <h2 class="color1">Patcher v1.13.00</h2>
@@ -82,6 +84,8 @@
           </div>
     <div class="clear"></div>
   </div>
+
+-->
 			  <div class="spacer2"></div><div class="spacer3"></div>
 
 			<table class="topics grapic-drivers">
