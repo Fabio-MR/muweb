@@ -29,7 +29,7 @@
 			} );
 		</script>
 		<div class="lk1">
-			<a class="card-login show-popup" id="signin" href="en/signin">
+			<a class="card-login" id="#signin" href="en/signin">
   	<i class="icons icon-lock"></i>
     <h2>Sign in</h2>
     <span>Log in to your account panel</span>

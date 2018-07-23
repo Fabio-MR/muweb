@@ -49,7 +49,7 @@ if ( class_exists( "General" ) == false ) {
 		$Tpl->set('TOPPLAYERS',$this->TopPlayers());
 		$Tpl->set('TOPGUILD',$this->TopGuilds());
 		
-		}
+		} 
 		
 		public function loadDivLoginLogout()
 		{
@@ -57,12 +57,12 @@ if ( class_exists( "General" ) == false ) {
 			global $Tpl;
 			if(!isset($_SESSION[SESSION_NAME]))
 			{	$divLTemp = fopen("templates/". TEMPLATE_DIR ."/div[logout].tpl.php","r");
-				$Tpl->set("DIV[LOGIN_LOGOUT]", fread($divLTemp,filesize("templates/". TEMPLATE_DIR ."/div[LOGOUT].tpl.php")));
+				$Tpl->set("DIV[LOGIN_LOGOUT]", fread($divLTemp,filesize("templates/". TEMPLATE_DIR ."/". LANGUAGE_PATH ."/div[LOGOUT].tpl.php")));
 					}
 			else 
 			{
 				$divLTemp = fopen("templates/". TEMPLATE_DIR ."/div[login].tpl.php","r");
-				$Tpl->set("DIV[LOGIN_LOGOUT]", fread($divLTemp,filesize("templates/". TEMPLATE_DIR ."/div[LOGIN].tpl.php")));
+				$Tpl->set("DIV[LOGIN_LOGOUT]", fread($divLTemp,filesize("templates/". TEMPLATE_DIR ."/". LANGUAGE_PATH ."/div[LOGIN].tpl.php")));
 			}		
 					
 					
