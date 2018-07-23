@@ -3,7 +3,7 @@ if ( class_exists( "DataBase" ) == false )		{
 class DataBase /* extends MySql */ {
     /*Método construtor do banco de dados*/
     public function __construct(){
-		//$this->connect();  //comentado por ser desnecessario
+		//$this->connect();  //não é nescessario inicializar aqui
 		
 		}
      

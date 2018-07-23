@@ -3,28 +3,28 @@
 		<div class="wrapper">
 			<ul id="navigation">
 				<div class="spacer4"></div>
-				<li><a href="pt/news" id="nav-active"><i class="top-icons-news"></i>Home</a>
+				<li><a href="pt/news" id="nav-active"><i class="top-icons-news"></i>Inicio</a>
 				</li>
-				<li><a href="pt/server"><i class="top-icons-server"></i>About</a>
+				<li><a href="pt/server"><i class="top-icons-server"></i>Sobre</a>
 				</li>
-				<li><a href="pt/files"><i class="top-icons-files"></i>Files</a>
+				<li><a href="pt/files"><i class="top-icons-files"></i>Downloads</a>
 				</li>
-				<li><a href="pt/rules"><i class="top-icons-rules"></i>Rules</a>
+				<li><a href="pt/rules"><i class="top-icons-rules"></i>Regras</a>
 				</li>
 				<li><a href="pt/ratings"><i class="top-icons-ratings"></i>Rankings</a>
 				</li>
-				<li><a href="pt/statistic"><i class="top-icons-statistic"></i>Statistics</a>
+				<li><a href="pt/statistic"><i class="top-icons-statistic"></i>Estatísticas</a>
 				</li>
-				<li><a href="#"><i class="top-icons-forum"></i>Forum</a>
-				</li>
+				<!--li><a href="#"><i class="top-icons-forum"></i>Forum</a>
+				</li-->
 			</ul>
 
 			<div id="countdown">
-				<h2>New progression with increased level cap will be released in</h2>
+				<h2>O servidor será iniciado em</h2>
 			</div>
 			<script type="text/javascript">
 				$( function () {
-					var ts = new Date( "July 8, 2018 18:00:00" );
+					var ts = new Date( "July 29, 2018 18:00:00" );
 					$( '#countdown' ).countdown( {
 						timestamp: ts
 					} );
@@ -35,10 +35,10 @@
 
 					<img src="pt/images/no-avatar.png" alt=""/>
 
-					<p>You are logged in as: <b>{#USERNAME}</b>
+					<p>Você está logado como: <b>{#USERNAME}</b>
 					</p>
 
-					<a href="pt/usercp/{#USERNAME}" target="_blank">Profile</a>
+					<a href="pt/usercp/{#USERNAME}" target="_blank">Perfil</a>
 					<a href="pt/logout">Exit</a>
 
 				</div>
@@ -46,7 +46,7 @@
 				<div class="events-box">
 
 					<div id="events-time">
-						<h3>Event schedule</h3>
+						<h3>Agenda de eventos</h3>
 						<div class="spacer"></div>
 						<ul id="events">
 							<script type="text/javascript" src="pt/templates/{#TEMPLATE}/js/events.js"></script>
@@ -64,14 +64,14 @@
 			<div class="status">
 				<div class="item" data-online="{#TOTAL_ONLINE}" data-max-online="600">
 					<div class="v-align">
-						<a href="#" class="link-about" target="_blank">description</a>
+						<a href="#" class="link-about" target="_blank">descrição</a>
 						<div class="name">{#SERVERNAME}</div>
 						<div class="chronicle">{#EXPERIENCE}</div>
 					</div>
 					<div class="circle"><canvas width="144" height="144"></canvas>
 					</div>
 					<div class="caption">
-						current online<span>{#TOTAL_ONLINE}</span>
+						online agora <span>{#TOTAL_ONLINE}</span>
 					</div>
 				</div>
 				<!--

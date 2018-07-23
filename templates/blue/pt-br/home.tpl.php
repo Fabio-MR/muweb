@@ -10,7 +10,7 @@
 					<div class="article">
 						<div id="warn-info">With our unique <a href="#">progressive system</a> it's never too late to join the MuNewAgeZh server!</div>
 
-						<h2><i class="icons icon-news"></i>News</h2>
+						<h2><i class="icons icon-news"></i>Noticias</h2>
 						<div class="spacer3"></div>
 
 
@@ -20,11 +20,12 @@
 							</div>
 							<div class="news-text">
 
-								<h2><a href="#/index.php?/topic/907-rampage-x20-unique-progressive-server/" target="_blank">Welcome to mu New Age server</a></h2>
+								<h2><a href="#/index.php?/topic/907-rampage-x20-unique-progressive-server/" target="_blank">Bem vindo ao mu New Age server</a></h2>
 								<div class="spacer_2px"></div>
 
 								<div class="news-descr">
-									<div style="text-align: justify;">Hello, welcome to the Mu New Age server.<br> Here you will find a unique gaming experience, unlike any other online mu server. We at New Age Z have prepared for you an incredible experience on the continent of Mu Online, a non-sales server with valued PVP / PVE. Come join our family.</div>
+									<div style="text-align: justify;">Olá, bem vindo ao servidor Mu New Age.<br>
+Aqui você encontrará uma experiência de jogo única, diferente de qualquer outro servidor mu online. Nós da New Age Z preparamos para você uma experiência incrível no continente da Mu Online, um servidor sem vendas com PVP / PVE. Venha se juntar a nossa família.</div>
 									<div class="clear"></div>
 								</div>
 

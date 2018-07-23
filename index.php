@@ -266,7 +266,7 @@
 		break;	
 		break;
 		case "statistic":
-   		 
+   		$Statistics = new Statistics();
      	$Tpl->open("templates/".TEMPLATE_DIR."/".LANGUAGE_PATH."/statistic.tpl.php");	
 		break;	
 		case "classes":

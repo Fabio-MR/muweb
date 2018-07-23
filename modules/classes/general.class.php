@@ -50,18 +50,18 @@ if ( class_exists( "General" ) == false ) {
 		$Tpl->set('TOPGUILD',$this->TopGuilds());
 		
 		} 
-		
+		//alterna o menu para usuario logado
 		public function loadDivLoginLogout()
 		{
 			
 			global $Tpl;
 			if(!isset($_SESSION[SESSION_NAME]))
-			{	$divLTemp = fopen("templates/". TEMPLATE_DIR ."/div[logout].tpl.php","r");
+			{	$divLTemp = fopen("templates/". TEMPLATE_DIR ."/". LANGUAGE_PATH ."/div[logout].tpl.php","r");
 				$Tpl->set("DIV[LOGIN_LOGOUT]", fread($divLTemp,filesize("templates/". TEMPLATE_DIR ."/". LANGUAGE_PATH ."/div[LOGOUT].tpl.php")));
 					}
 			else 
 			{
-				$divLTemp = fopen("templates/". TEMPLATE_DIR ."/div[login].tpl.php","r");
+				$divLTemp = fopen("templates/". TEMPLATE_DIR ."/". LANGUAGE_PATH ."/div[login].tpl.php","r");
 				$Tpl->set("DIV[LOGIN_LOGOUT]", fread($divLTemp,filesize("templates/". TEMPLATE_DIR ."/". LANGUAGE_PATH ."/div[LOGIN].tpl.php")));
 			}		
 					
@@ -137,7 +137,7 @@ if ( class_exists( "General" ) == false ) {
 			$result = $this->selectDB($sql);
 			$Tpl->set("TOTAL_GUILD", $result[0]->Total);
 			
-			$sql = "SELECT COUNT(*) AS Total FROM [dbo].[MEMB_STAT] WHERE [ConnectTM] >= '".date('Y')."-".date('m')."-".date('d')." 00:00:00'";
+			$sql = "SELECT count(1) as Total  FROM ".DATABASE.".dbo.MEMB_STAT WHERE Connectstat = 1";
 			$result = $this->selectDB($sql);
 			$Tpl->set("TOTAL_ONLINE", $result[0]->Total);
 			

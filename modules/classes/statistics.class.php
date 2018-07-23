@@ -8,34 +8,35 @@ if ( class_exists( "Statistics" ) == false ) {
     class Statistics extends DataBase {
 		private $tpmResult = NULL;
 		public function __construct()
-		{
-		switch(@$_GET['load'])
-		{
-		case "server_status":
-		$this->ServerStatus();
-		break;
-		case "server_online":
-		$this->CountUserOnline();
-		break;
-		
-		}
+		{ global $Tpl;
+		 
+		 $Tpl->set("SERVERSTATUS",$this->ServerStatus());
+			
+			
+			/*
+			Server status	 Season 4 Special Episode
+			Online	0
+			Active players 24h	{#ACTIVEDAY}
+			Game Masters	{#TOTALGAMEMASTER}
+			Accounts	{#TOTALACCOUNTS}
+			Guilds	{#TOTALGUILDS}
+			Version	{#SERVERVERSION}
+			Experience	500x
+			Crywolf	NewAgeZ
+			Fortress status	{#CRYWOLFSTATUS}
+			Attack time	{#CRYWOLFATTACK}
+			Castle Siege	NewAgeZ
+			Castle owner	{#WONERCS}
+			Attack time	{#CSATTACK}
+			Siege participants	{#CSPARTICIPANTS}
+
+			*/
 		}
 
 		private function ServerStatus()
 		{
-		$server ='<div class="realm_st realm_st_bg">
-				  <div class="realmst_head">
-					<div class="realm_name"><span class="online"></span>Server PvP</div>
-					<p class="realm-desc">Online Players: 0</p>
-				  </div>
-				</div>
-				<div class="realm_st realm_st_bg2">
-				  <div class="realmst_head">
-					<div class="realm_name"><span class="online"></span>Server Non-PvP</div>
-					<p class="realm-desc">Online Players: 0</p>
-				  </div>
-				</div>';
-				//echo $server;
+			//online
+			return 'offline';
 		}
 		
 		private function CountUserOnline()

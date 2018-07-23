@@ -25,7 +25,7 @@
 								</tr>
 								<tr class="rowclass">
 									<td>Server status</td>
-									<td class="st10"><i class="dot-online"></i> {#VERSION}</td>
+									<td class="st10"><i class="dot-{#SERVERSTATUS}"></i> {#VERSION}</td>
 								</tr>
 								<tr>
 									<td>Online</td>

@@ -44,7 +44,7 @@
 										<a class="nice-button" href="ratings/prison/">Prison</a>-->
 
 
-{#RANKINGS}
+										{#RANKINGS}
 										<div class="spacer3"></div>
 
 
@@ -52,8 +52,8 @@
 										<h4>{#RAKING-NAME}</h4>
 										<div class="spacer3"></div>
 
-										<p>Only active players, who were online in last 30 days, appears in the Top.<br><img src="images/premium/top_gold.png" alt=""> - VIP Gold status, more opportunities, higher rates and other, more information at <a href="vip">VIP</a> section.</p>
-<!--
+										<p>Apenas jogadores ativos, que estavam on-line nos últimos 30 dias, aparecem no topo.<br><img src="images/premium/top_gold.png" alt=""> - Status VIP Gold, mais oportunidades, taxas mais altas e outras mais informações em <a href="vip">VIP</a> section.</p>
+										<!--
 										<div class="spacer2"></div>
 
 										<div class="center">
@@ -69,7 +69,7 @@
 										</div>
 -->
 										<div class="spacer3"></div>
-<!--
+										<!--
 										<table class="topics">
 											<tbody>
 												<tr>
@@ -259,7 +259,7 @@
 											</tbody>
 										</table>
 -->
-{#ResultRankings}
+										{#ResultRankings}
 
 
 
@@ -296,12 +296,6 @@
 							</div>
 
 						</div>
-
-
-
-
-
-
 
 
 					</div>
