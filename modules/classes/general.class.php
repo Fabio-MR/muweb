@@ -44,7 +44,7 @@ if ( class_exists( "General" ) == false ) {
 		$Tpl->set('DATE',date('F d, Y  H:i:s'));
 		
 		
-		$this->BasicStat();
+		$this->onlineUsers();
 		
 		$Tpl->set('TOPPLAYERS',$this->TopPlayers());
 		$Tpl->set('TOPGUILD',$this->TopGuilds());
@@ -125,18 +125,12 @@ if ( class_exists( "General" ) == false ) {
 		
 		public function BasicStat()
 		{ Global $Tpl;
-			$sql = "SELECT count(1) as Total FROM ".DATABASE.".dbo.MEMB_INFO";
-			$result = $this->selectDB($sql);
-			$Tpl->set("TOTAL_ACCOUNTS", $result[0]->Total);
 			
 			$sql = "SELECT count(1) as Total FROM ".DATABASE.".dbo.Character";
 			$result = $this->selectDB($sql);
 			$Tpl->set("TOTAL_CHARATERS", $result[0]->Total);
 		
-			$sql ="SELECT count(1) as Total from ".DATABASE.".dbo.Guild";
-			$result = $this->selectDB($sql);
-			$Tpl->set("TOTAL_GUILD", $result[0]->Total);
-			
+			//Players online
 			$sql = "SELECT count(1) as Total  FROM ".DATABASE.".dbo.MEMB_STAT WHERE Connectstat = 1";
 			$result = $this->selectDB($sql);
 			$Tpl->set("TOTAL_ONLINE", $result[0]->Total);
@@ -148,7 +142,17 @@ if ( class_exists( "General" ) == false ) {
 
 			
 		}
+		
+		
+			//Players online
+		public function onlineUsers()
+		{ global $Tpl;
+			$sql = "SELECT count(1) as Total  FROM ".DATABASE.".dbo.MEMB_STAT WHERE Connectstat = 1";
+			$result = $this->selectDB($sql);
+			$Tpl->set("TOTAL_ONLINE", $result[0]->Total);
 
+		}
+		
 				}
 }
 

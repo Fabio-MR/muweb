@@ -11,18 +11,17 @@ if ( class_exists( "Statistics" ) == false ) {
 		{ global $Tpl;
 		 
 		 $Tpl->set("SERVERSTATUS",$this->ServerStatus());
+		 $Tpl->set("ACTIVEDAY",$this->activeLast24Hours());
+		 $Tpl->set("TOTALGAMEMASTER",$this->gameMasters());
+		 $Tpl->set("TOTALACCOUNTS",$this->totalAccounts());
+		 $Tpl->set("TOTALGUILDS",$this->totalGuilds());
+		 
+		 $Tpl->set("SERVERVERSION",VERSION);  // versão do servidor -> settings
 			
-			
+		 
+		 //informações do castle sieg
 			/*
-			Server status	 Season 4 Special Episode
-			Online	0
-			Active players 24h	{#ACTIVEDAY}
-			Game Masters	{#TOTALGAMEMASTER}
-			Accounts	{#TOTALACCOUNTS}
-			Guilds	{#TOTALGUILDS}
-			Version	{#SERVERVERSION}
-			Experience	500x
-			Crywolf	NewAgeZ
+
 			Fortress status	{#CRYWOLFSTATUS}
 			Attack time	{#CRYWOLFATTACK}
 			Castle Siege	NewAgeZ
@@ -39,25 +38,49 @@ if ( class_exists( "Statistics" ) == false ) {
 			return 'offline';
 		}
 		
+		
+		//online agora
 		private function CountUserOnline()
 		{
 			$sql = "SELECT count(1) as Total  FROM ".DATABASE.".dbo.MEMB_STAT WHERE Connectstat = 1";
 			$result = $this->selectDB($sql);
-			$online ='<p class="status online" id="logon-status2">Online ('.$result[0]->Total.')</p>';
-			//Salvar o record de usurios online
-			$record ='SELECT [record] FROM [dbo].[webRecord] ORDER BY record DESC';
-			$result_record = $this->selectDB($record);
-			if($result_record[0]->record < $result[0]->Total){
-				$sql ='INSERT INTO [dbo].[webRecord]
-           ([record],[date])
-     VALUES
-           ('.$result[0]->Total.'
-           ,'.time().')';
-		   	$this->insertDB($sql);
-			}
-			//end salvar record
-			echo $online;
+			if(count($result) > 0) return $result[0]->Total;
+			return 0;
 		}
-	
+		
+		// numero de players online nas ultimas 24 horas
+		private function activeLast24Hours()
+		{
+			$sql = 'SELECT count(*) as Total  FROM [dbo].[MEMB_STAT] WHERE [ConnectTM] BETWEEN  \''.date("Y-m-d", mktime(0,0,0, date("m"), date("d")-1, date("y"))).'\' AND \''.date("Y-m-d").'\'';
+			$result = $this->selectDB($sql);
+			if(count($result) > 0) return $result[0]->Total;
+			return 0;			
+		}
+		
+		// total de contas criadas
+		private function totalAccounts()
+		{		
+			$sql = "SELECT count(1) as Total FROM ".DATABASE.".dbo.MEMB_INFO";
+			$result = $this->selectDB($sql);
+			if(count($result[0]->Total)>0) return $result[0]->Total;
+			return 0;
+		}
+		
+		//total de guilds
+		private function totalGuilds()
+		{
+			$sql ="SELECT count(1) as Total from ".DATABASE.".dbo.Guild";
+			$result = $this->selectDB($sql);
+			if(count($result[0]->Total)>0) return $result[0]->Total;
+			return 0;
+
+		}
+		
+		// retorna o total de game masters no servidor
+		private function gameMasters()
+		{
+			
+			return 1;
+		}
 	}	
 }
